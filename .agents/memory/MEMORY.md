@@ -1,0 +1,1 @@
+- [Slot demo constraints](slot-demo.md) — authoritative planted scenarios and deterministic date snapshots take priority over realism.
