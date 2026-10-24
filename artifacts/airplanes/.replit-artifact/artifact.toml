@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "AIrplanes"
+description = "An unchanged default web app template for the team to build on later."
+version = "1.0.0"
+id = "artifacts/airplanes"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19508
+
+[services.development]
+run = "pnpm --filter @workspace/airplanes run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/airplanes", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/airplanes/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19508"
+BASE_PATH = "/"
